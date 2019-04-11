@@ -10,8 +10,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent, NavbarComponent, HeaderComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
