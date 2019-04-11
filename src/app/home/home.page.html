@@ -1,14 +1,28 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Ionic Blank
+      Players
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchChanged($event)"></ion-searchbar>
+  
+  <ion-item>
+    
+    <ion-label>Select Searchtype</ion-label>
+    <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)">
+        <ion-select-option value="">All</ion-select-option>
+
+      </ion-select>
+
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let item of (results | async)"> 
+      {{item.name}}
+    </ion-item>
+  </ion-list>
 </ion-content>
