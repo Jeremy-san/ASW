@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
+    loadChildren: './pages/home/home.module#HomePageModule'
+  },
+  {
+    path: 'navbar',
+    component: NavbarComponent
   },
 ];
 
