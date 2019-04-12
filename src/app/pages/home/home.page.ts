@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SearchType, SwPlayerService } from '../services/sw-player.service';
+import { SwPlayerService } from '../../services/sw-player.service';
 import { subscribeOn } from 'rxjs/operators';
 
 
@@ -23,10 +23,5 @@ export class HomePage implements OnInit {
    .subscribe(data => this.players = data)
   }
 
-  searchChanged() {
-    this.results= this.playerService.searchData(this.searchTerm, this.type);
-
-    
-  }
 
 }

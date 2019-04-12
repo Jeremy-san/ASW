@@ -11,9 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { SwPlayerService } from './services/sw-player.service';
+import { HeaderComponent } from './components/header/header.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavbarComponent, HeaderComponent],
   entryComponents: [],
   imports: [
      CommonModule,
@@ -30,4 +32,4 @@ import { SwPlayerService } from './services/sw-player.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
