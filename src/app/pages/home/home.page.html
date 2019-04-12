@@ -8,22 +8,19 @@
 
 <ion-content>
 
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-searchbar (change)="getItems($event)"></ion-searchbar>
 
   <ion-card *ngFor="let player of players">
-      <ion-card-header>
-        <ion-card-title>{{ player.name }}</ion-card-title>
-      </ion-card-header>
-    
-      <ion-card-content>
-        <img [src] ='player.image'/>
-        <ion-card-subtitle>height: {{ player.height }}</ion-card-subtitle>
-        <ion-card-subtitle>mass: {{ player.mass }}</ion-card-subtitle>
-        <ion-card-subtitle>species: {{ player.species }}</ion-card-subtitle>      
-      </ion-card-content>
-    </ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ player.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]='player.image' />
+      <ion-card-subtitle>height: {{ player.height }}</ion-card-subtitle>
+      <ion-card-subtitle>mass: {{ player.mass }}</ion-card-subtitle>
+      <ion-card-subtitle>species: {{ player.species }}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
-
-
-
