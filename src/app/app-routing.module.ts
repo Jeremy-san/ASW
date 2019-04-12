@@ -2,6 +2,8 @@ import { NgModule, Component } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TeamPageComponent } from './pages/team-page/team-page.component';
+import { HomePage } from './pages/home/home.page';
 
 const routes: Routes = [
   {
@@ -11,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './pages/home/home.module#HomePageModule'
+    component: HomePage
   },
   {
     path: 'navbar',
@@ -20,6 +22,10 @@ const routes: Routes = [
   {
     path: 'header',
     component: HeaderComponent
+  },
+  {
+  path: 'team',
+  component: TeamPageComponent
   }
 ];
 
