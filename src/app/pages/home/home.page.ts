@@ -13,6 +13,9 @@ import { subscribeOn } from 'rxjs/operators';
 export class HomePage implements OnInit {
 
   public players = [];
+  shouldShowCancel = true;
+  searchTerm ='';
+  
 
   constructor(private playerService: SwPlayerService ) {
 
@@ -23,5 +26,10 @@ export class HomePage implements OnInit {
    .subscribe(data => this.players = data)
   }
 
-
-}
+  filterSearch = this.players.filter((searchTerm) => {
+    if(searchTerm == this.players){
+      return true
+    }
+    }
+   
+  )}
