@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {Iplayers} from '../players'
 
 export enum SearchType {
   all = '',
@@ -19,22 +20,13 @@ export enum SearchType {
 })
 
 export class SwPlayerService {
-  url="https://melroune.github.io/starwars-api/api/all.json";
-  urlId = "https://melroune.github.io/starwars-api/api/.json`";
+  private _url: string = "/assets/data/api.json"
+
 
   constructor(private http: HttpClient) { }
 
-  searchData(name:string, type: SearchType): Observable<any> {
-    return this.http.get(`${this.url}?s=${encodeURI(name)}&type=${type}`)
-    .pipe(
-      map(results => {
-        console.log('RAW: ', results);
-        return results['Search'];
-        })
-      );
-    }
-
-  getDetails(id) {
-    return this.http.get(`${this.url}?i=${id}`);
+  getPlayers(): Observable<Iplayers[]>{
+    return this.http.get<Iplayers[]>(this._url);
   }
+
 }

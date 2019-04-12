@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SearchType, SwPlayerService } from '../services/sw-player.service';
+import { subscribeOn } from 'rxjs/operators';
 
 
 
@@ -11,16 +12,15 @@ import { SearchType, SwPlayerService } from '../services/sw-player.service';
 })
 export class HomePage implements OnInit {
 
-  results: Observable<any>;
-  searchTerm = ''; 
-  type: SearchType = SearchType.all;
+  public players = [];
 
   constructor(private playerService: SwPlayerService ) {
 
   }
 
   ngOnInit() {
-    
+   this.playerService.getPlayers()
+   .subscribe(data => this.players = data)
   }
 
   searchChanged() {
