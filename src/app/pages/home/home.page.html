@@ -8,7 +8,7 @@
 
 <ion-content>
 
-  <ion-searchbar [(ngModel)]="searchText" placeholder="search text goes here"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchText" placeholder="Search"></ion-searchbar>
 
   <ion-card *ngFor="let player of players | filter : searchText">
     <ion-card-header>
