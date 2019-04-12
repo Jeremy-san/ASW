@@ -11,25 +11,36 @@ import { subscribeOn } from 'rxjs/operators';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  public players = [];
-  shouldShowCancel = true;
-  searchTerm ='';
   
+  public players = [];
+  searchQuery = '';
+  items: string[];
 
-  constructor(private playerService: SwPlayerService ) {
-
+  constructor(private playerService: SwPlayerService) {
+    this.initializeItems();
   }
 
+  initializeItems(){
+    this.items = this.players;
+  }
   ngOnInit() {
    this.playerService.getPlayers()
    .subscribe(data => this.players = data)
   }
 
-  filterSearch = this.players.filter((searchTerm) => {
-    if(searchTerm == this.players){
-      return true
+  getItems(ev: any) {
+    this.initializeItems();
+
+    const val = ev.target.value;
+
+    if(val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
     }
-    }
+  }
+    
+  }
+    
    
-  )}
+  
