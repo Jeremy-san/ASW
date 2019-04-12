@@ -8,28 +8,25 @@
 
 <ion-content>
 
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchText" placeholder="search text goes here"></ion-searchbar>
 
-  <ion-card *ngFor="let player of players">
-      <ion-card-header>
-        <ion-card-title>{{ player.name }}</ion-card-title>
-      </ion-card-header>
-    
-      <ion-card-content>
-        <img [src] ='player.image'/>
-        <ion-card-subtitle>height: {{ player.height }}</ion-card-subtitle>
-        <ion-card-subtitle>mass: {{ player.mass }}</ion-card-subtitle>
-        <ion-card-subtitle>species: {{ player.species }}</ion-card-subtitle>
-       
-        <ion-tab-button color="dark" routerLink="/team">
-          <ion-icon class="navbarIconColor" name="basketball"></ion-icon>
-          <ion-label class="navbarTitleColor">Add to my team</ion-label>
-        </ion-tab-button>
+  <ion-card *ngFor="let player of players | filter : searchText">
+    <ion-card-header>
+      <ion-card-title>{{ player.name }}</ion-card-title>
+    </ion-card-header>
 
-      </ion-card-content>
-    </ion-card>
+    <ion-card-content>
+      <img [src]='player.image' />
+      <ion-card-subtitle>height: {{ player.height }}</ion-card-subtitle>
+      <ion-card-subtitle>mass: {{ player.mass }}</ion-card-subtitle>
+      <ion-card-subtitle>species: {{ player.species }}</ion-card-subtitle>
+
+      <ion-tab-button color="dark" routerLink="/team">
+        <ion-icon class="navbarIconColor" name="basketball"></ion-icon>
+        <ion-label class="navbarTitleColor">Add to my team</ion-label>
+      </ion-tab-button>
+
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
-
-
-

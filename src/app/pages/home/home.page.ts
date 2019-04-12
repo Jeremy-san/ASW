@@ -4,28 +4,28 @@ import { SwPlayerService } from '../../services/sw-player.service';
 import { subscribeOn } from 'rxjs/operators';
 
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  
+
   public players = [];
   searchQuery = '';
   items: string[];
+  searchText;
 
   constructor(private playerService: SwPlayerService) {
     this.initializeItems();
   }
 
-  initializeItems(){
+  initializeItems() {
     this.items = this.players;
   }
   ngOnInit() {
-   this.playerService.getPlayers()
-   .subscribe(data => this.players = data)
+    this.playerService.getPlayers()
+      .subscribe(data => this.players = data)
   }
 
   getItems(ev: any) {
@@ -33,14 +33,14 @@ export class HomePage implements OnInit {
 
     const val = ev.target.value;
 
-    if(val && val.trim() != '') {
+    if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
         return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }
-    
-  }
-    
-   
-  
+
+}
+
+
+

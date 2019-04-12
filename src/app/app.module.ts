@@ -15,17 +15,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TeamPageComponent } from './pages/team-page/team-page.component';
 import { HomePage } from './pages/home/home.page';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HeaderComponent,TeamPageComponent,HomePage],
+  declarations: [AppComponent, NavbarComponent, HeaderComponent, TeamPageComponent, HomePage, FilterPipe],
   entryComponents: [],
   imports: [
-     CommonModule,
-     HttpClientModule,
-     BrowserModule,
-     IonicModule.forRoot(),
-     AppRoutingModule
-    ],
+    AppRoutingModule,
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
+  ],
   providers: [
     SwPlayerService,
     StatusBar,
