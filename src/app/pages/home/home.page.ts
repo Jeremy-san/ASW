@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SwPlayerService } from '../../services/sw-player.service';
 import { subscribeOn } from 'rxjs/operators';
+import { TransferService } from 'src/app/services/transfer.service';
 
 
 @Component({
@@ -16,7 +17,10 @@ export class HomePage implements OnInit {
   items: string[];
   searchText;
 
-  constructor(private playerService: SwPlayerService) {
+  constructor(
+    private playerService: SwPlayerService,
+    private transferService: TransferService,
+  ) {
     this.initializeItems();
   }
 
@@ -38,6 +42,10 @@ export class HomePage implements OnInit {
         return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+  }
+
+  addPlayer(player) {
+    this.transferService.addPlayer(player);
   }
 
 }

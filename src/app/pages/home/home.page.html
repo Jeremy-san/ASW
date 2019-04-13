@@ -17,11 +17,11 @@
 
     <ion-card-content>
       <img [src]='player.image' />
-      <ion-card-subtitle>height: {{ player.height }}</ion-card-subtitle>
-      <ion-card-subtitle>mass: {{ player.mass }}</ion-card-subtitle>
-      <ion-card-subtitle>species: {{ player.species }}</ion-card-subtitle>
+      <ion-card-subtitle>Height: {{ player.height }}</ion-card-subtitle>
+      <ion-card-subtitle>Mass: {{ player.mass }}</ion-card-subtitle>
+      <ion-card-subtitle>Species: {{ player.species }}</ion-card-subtitle>
 
-      <ion-tab-button color="dark" routerLink="/team">
+      <ion-tab-button color="dark" (click)="addPlayer(player)">
         <ion-icon class="navbarIconColor" name="basketball"></ion-icon>
         <ion-label class="navbarTitleColor">Add to my team</ion-label>
       </ion-tab-button>

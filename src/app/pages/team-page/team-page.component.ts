@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TransferService } from 'src/app/services/transfer.service';
 
 @Component({
   selector: 'app-team-page',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team-page.component.scss'],
 })
 export class TeamPageComponent implements OnInit {
+  majorFive;
 
-  constructor() { }
+  constructor(
+    private transferService: TransferService,
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.majorFive = this.transferService.majorFive;
+  }
 
 }

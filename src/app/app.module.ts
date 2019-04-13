@@ -17,6 +17,7 @@ import { TeamPageComponent } from './pages/team-page/team-page.component';
 import { HomePage } from './pages/home/home.page';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { TransferService } from './services/transfer.service';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     SwPlayerService,
+    TransferService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

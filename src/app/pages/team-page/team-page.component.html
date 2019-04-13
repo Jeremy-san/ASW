@@ -1,4 +1,16 @@
+<ion-content class="backgroundImage">
+  <ion-card class="cardPlacement" *ngFor=" let player of majorFive">
+    <ion-card-header>
+      <ion-card-title>{{ player.name }}</ion-card-title>
+    </ion-card-header>
 
-<div id="backgroundTeam">
+    <ion-card-content>
 
-</div>
+      <img [src]='player.image' />
+      <ion-card-subtitle>Height: {{ player.height }}</ion-card-subtitle>
+      <ion-card-subtitle>Mass: {{ player.mass }}</ion-card-subtitle>
+      <ion-card-subtitle>Species: {{ player.species }}</ion-card-subtitle>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
